@@ -1,7 +1,8 @@
-<% @tweets.order(date: :desc).each do |tweet| %>
-  <p><%= tweet.user %></p>
-  <p><%= tweet.text %></p>
-  <p><%= tweet.date %></p>
-  <p><%= tweet.url %></p>
-  <hr />
-<% end %>
+<div class="tweet__container">
+  <% @tweets.order(date: :desc).each do |tweet| %>
+      <a class="tweet" href="<%= tweet.url %>" target="_blank">
+        <p class="tweet__user">From: <%= tweet.user %></p>
+        <p class="tweet__text"><%= tweet.text %></p>
+      </a>
+  <% end %>
+</div>
