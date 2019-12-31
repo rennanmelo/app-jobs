@@ -7,9 +7,19 @@ class TweetsController < ApplicationController
       config.access_token_secret = "rTZ5qXrxQtKGSCjreewZvqybdHXrGLC9Z67H95EzzbCNW"
     end
 
+    # Get all the tweets that have #rails and #jobs from the last 7 days, excluding retweets
     client.search('#rails #jobs -rt').each do |tweet|
-      puts "#{tweet.user.name} - #{tweet.text} - #{tweet.url} - #{tweet.created_at}"      
-      puts "----------------------------------"   
+      new_tweet = Tweet.new
+      already_exist = Tweet.find_by_text(tweet.text)
+      
+      # Check if the tweet already exist before save
+      if already_exist == nil
+        new_tweet.user = tweet.user.name
+        new_tweet.text = tweet.text
+        new_tweet.date = tweet.created_at
+        new_tweet.url = tweet.url
+        new_tweet.save
+      end
     end
   end
 end
