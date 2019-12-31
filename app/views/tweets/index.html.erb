@@ -1,1 +1,7 @@
-<h1>Hello World</h1>
+<% @tweets.order(date: :desc).each do |tweet| %>
+  <p><%= tweet.user %></p>
+  <p><%= tweet.text %></p>
+  <p><%= tweet.date %></p>
+  <p><%= tweet.url %></p>
+  <hr />
+<% end %>

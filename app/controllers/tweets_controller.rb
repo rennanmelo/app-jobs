@@ -21,5 +21,7 @@ class TweetsController < ApplicationController
         new_tweet.save
       end
     end
+
+    @tweets = Tweet.all
   end
 end
