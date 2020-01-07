@@ -1,10 +1,10 @@
 class TweetsController < ApplicationController
   def index
     client = Twitter::REST::Client.new do |config|
-      config.consumer_key        = "7qqGDH7sx46zexxmoko3QRwmJ"
-      config.consumer_secret     = "afxajxGZt5nzkRQm5V0tosaRtqwQCKpslm8lzxCB2bAJSxXa19"
-      config.access_token        = "1030183222909526016-wMcHUrXSjXn8RUOnsIk6MT9kHObM59"
-      config.access_token_secret = "rTZ5qXrxQtKGSCjreewZvqybdHXrGLC9Z67H95EzzbCNW"
+      config.consumer_key        = Rails.application.credentials.twitter_api[:consumer_key]
+      config.consumer_secret     = Rails.application.credentials.twitter_api[:consumer_secret]
+      config.access_token        = Rails.application.credentials.twitter_api[:access_token]
+      config.access_token_secret = Rails.application.credentials.twitter_api[:access_token_secret]
     end
 
     # Get all the tweets that have #rails and #jobs from the last 7 days, excluding retweets
