@@ -1,0 +1,48 @@
+// Place all the styles related to the Tweets controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+.tweet {
+  box-sizing: border-box;
+  font-style: italic;
+  padding: 10px;
+  border: 1px solid #ddd;
+  margin: 0 2px 10px;
+  text-decoration: none;
+  display: inline-block;
+  flex: 0 1 calc(100%);
+  color: #fff;
+  background-color: #1DA1F2;
+  
+  @media screen and (min-width: 768px) {
+    flex: 0 1 calc(50% - 10px);
+  }
+  
+  &:active,
+  &:visited {
+    color: #fff;
+  }
+
+  &:hover {
+    background-color: #19608E;
+  }
+
+  &__container {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+    justify-content: space-around;
+    align-items: stretch;
+    flex-direction: row;
+  }
+
+  &__user {
+    font-size: 18px;
+    margin-bottom: 5px;
+  }
+
+  &__text {
+    font-style: italic;
+    color: #fff;
+  }
+}
